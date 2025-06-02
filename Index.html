@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Mursal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff3f5);
+      color: #333;
+      text-align: center;
+    }
+    .page {
+      display: none;
+      padding: 40px 20px;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .page.active {
+      display: flex;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #ff6699;
+      position: relative;
+      z-index: 2;
+    }
+    h2, p {
+      margin: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+    .sticker img {
+      width: 120px;
+      margin: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .heart {
+      font-size: 2em;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+    .emojiRain {
+      font-size: 1.5em;
+      animation: float 3s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100vh); }
+    }
+    #page1::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Rose_Flower_in_Bloom.jpg/320px-Rose_Flower_in_Bloom.jpg') no-repeat center center;
+      background-size: contain;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.15;
+      animation: bloom 5s ease forwards;
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    @keyframes bloom {
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.25;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page active" id="page1">
+    <h1>Happy Birthday Mursal 🎂</h1>
+    <p>Today is all about you, my chaotic cutie 🧁💕<br>Wishing you smiles, hugs, peace... and cake!</p>
+    <div class="sticker"><img src="https://media.giphy.com/media/iCM6GqQTImr8RgdIXV/giphy.gif" /></div>
+    <button onclick="nextPage()">Click Next</button>
+  </div>  
+
+  <div class="page" id="page2">
+    <div class="sticker"><img src="https://media.giphy.com/media/bKyQb654tHDq72daXJ/giphy.gif" /></div>
+    <h2>Mursu, do you want your birthday gift? 🎁</h2>
+    <button onclick="giftAnswer(true)">Yes</button>
+    <button onclick="giftAnswer(false)">No</button>
+    <div id="giftResponse"></div>
+  </div>  
+
+  <div class="page" id="page3">
+    <div class="sticker"><img src="https://media.giphy.com/media/Jr2jHbWXSp4k2d7vvb/giphy.gif" /></div>
+    <h2>What do you love the most, birthday girl? 😏</h2>
+    <button onclick="loveAnswer('Masi')">Masi</button>
+    <button onclick="loveAnswer('Bath')">Bath</button>
+    <button onclick="loveAnswer('Phone')">Phone</button>
+    <button onclick="loveAnswer('Other bitches')">Other bitches</button>
+    <button onclick="loveAnswer('Sleep')">Sleep</button>
+    <div id="loveResponse"></div>
+  </div>  
+
+  <div class="page" id="page4">
+    <div class="sticker"><img src="https://media.giphy.com/media/YKUvclrGYmDKXwtphf/giphy.gif" /></div>
+    <h2>Click 3 hearts to unlock a birthday surprise 💞</h2>
+    <div>
+      <span class="heart" onclick="clickHeart(this)">🖤</span>
+      <span class="heart" onclick="clickHeart(this)">💖</span>
+      <span class="heart" onclick="clickHeart(this)">🤍</span>
+    </div>
+    <div id="heartMessage"></div>
+  </div>  
+
+  <div class="page" id="page5">
+    <div class="sticker"><img src="https://media.giphy.com/media/1BgNwWKY7xW5fucSYD/giphy.gif" /></div>
+    <p style="max-width: 600px; margin: auto; font-size: 1.2em;">Mursal, today the world got brighter because you were born 🌸<br>Even on your worst days, your soul shines. I know you’ve been through a lot—but I admire how you still carry love inside. You matter so much. I'm grateful to know you, to care for you, and to be part of your story. Never forget, you're a blessing, not just to me, but to the world.</p>
+    <p>If I could teleport right now, I'd hug you so tight... and not let go 💖</p>
+    <button onclick="nextPage()">Final Surprise</button>
+  </div>  
+
+  <div class="page" id="page6">
+    <!-- GIFs removed as requested -->
+    <h2>🎉 Happy Birthday Once Again, Mursal! 🎉</h2>
+    <p style="max-width: 600px; margin: auto; font-size: 1.2em;">
+      I hope this little page made you smile, even a little. <br>
+      You're the brightest star in every sky, the softest light on the hardest days. 🌟<br>
+      I’m so lucky to celebrate your existence. Let's make this year full of love, healing, and endless surprises 🎈
+    </p>
+    <p>🎂 Blow the candles, wish big, and know you're loved more than words 💫</p>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    let heartsClicked = 0;
+
+    function nextPage() {
+      document.getElementById(`page${currentPage + 1}`).classList.remove('active');
+      currentPage++;
+      const next = document.getElementById(`page${currentPage + 1}`);
+      if (next) next.classList.add('active');
+    }
+
+    function giftAnswer(yes) {
+      const response = document.getElementById('giftResponse');
+      response.innerHTML = '';
+      if (yes) {
+        nextPage();
+      } else {
+        response.innerHTML = `<img src="https://media.giphy.com/media/WJaeeOEt41YfmUzZOq/giphy.gif" width="100" /><p>So you want gifts from other bitches? 😭</p>`;
+      }
+    }
+
+    function loveAnswer(answer) {
+      const response = document.getElementById('loveResponse');
+      response.innerHTML = '';
+      if (answer === 'Masi') {
+        response.innerHTML = `<p>YAYY! My Mursal chose me 😭🎈</p>`;
+        setTimeout(nextPage, 1500);
+      } else {
+        response.innerHTML = `<img src="https://media.giphy.com/media/W4RizlO6qZWQRYw9mb/giphy.gif" width="100" /><p>I’m mad at you now 😠</p>`;
+      }
+    }
+
+    function clickHeart(el) {
+      if (!el.classList.contains('clicked')) {
+        el.classList.add('clicked');
+        heartsClicked++;
+        if (heartsClicked === 3) {
+          document.getElementById('heartMessage').innerHTML = `
+            <img src="https://media.giphy.com/media/W4RizlO6qZWQRYw9mb/giphy.gif" width="100" />
+            <img src="https://media.giphy.com/media/LfTu28H05pKCbyCMkt/giphy.gif" width="100" />
+            <p>Yayyy you unlocked your gift!! 🎁 Love you Mursi!</p>
+            <button onclick="nextPage()">Next</button>
+          `;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
